@@ -1,5 +1,6 @@
 import puppeteer from "https://deno.land/x/puppeteer@16.2.0/mod.ts";
 import { SESSION_COOKIE } from "../secrets.ts";
+
 const __dirname = new URL('../', import.meta.url).pathname.slice(1);
 
 export function existsSync(filePath: string | URL): boolean {
@@ -37,11 +38,11 @@ export const browserToQuestionPage = async (day: number, path?: string) => {
         headless: true,
     });
     const page = await browser.newPage();
-    await page.setCookie({
-        name: 'session',
-        value: SESSION_COOKIE,
-        domain: 'https://adventofcode.com',
-    });
+    // await page.setCookie({
+    //     name: 'session',
+    //     value: SESSION_COOKIE,
+    //     domain: 'https://adventofcode.com',
+    // });
     await page.goto(path ?? `https://adventofcode.com/2022/day/${ day }`);
     await page.waitForNetworkIdle();
     return { page, browser };

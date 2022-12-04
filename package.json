@@ -1,0 +1,31 @@
+{
+  "name": "advent-of-code-2022",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mewen25/Advent-Of-Code-2022.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mewen25/Advent-Of-Code-2022/issues"
+  },
+  "homepage": "https://github.com/mewen25/Advent-Of-Code-2022#readme",
+  "dependencies": {
+    "@types/chalk": "^2.2.0",
+    "@types/puppeteer": "^7.0.4",
+    "chalk": "^5.1.2",
+    "fs": "^0.0.1-security",
+    "node-fetch": "^3.3.0",
+    "puppeteer": "^19.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.10",
+    "ts-node": "^10.9.1"
+  }
+}

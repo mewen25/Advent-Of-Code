@@ -22,9 +22,9 @@ function createFoldersAndFiles() {
     });
 }
 
-createFoldersAndFiles();
-
 const args = Deno.args;
+console.log(args);
+
 
 if(args.length === 0) {
     console.log("no args, building folders");
@@ -65,13 +65,13 @@ if(!validFile(`input/${padNumber(day)}/test.txt`, true)) {
     if(!testInput) {
         console.log(red(`Failed to fetch test input`));
     } else {
-    console.log(red(testInput));
-    const validInput = prompt('Is this valid test input? (check screenshot) (y/n)');
-    if(validInput === 'y') {
-        Deno.writeTextFileSync(`input/${padNumber(day)}/test.txt`, testInput);
-    } else {
-        console.log(red('Please enter valid test input manually'));
-    }
+        console.log(red(testInput));
+        const validInput = prompt('Is this valid test input? (check screenshot) (y/n)');
+        if(validInput === 'y') {
+            Deno.writeTextFileSync(`input/${padNumber(day)}/test.txt`, testInput);
+        } else {
+            console.log(red('Please enter valid test input manually'));
+        }
     }  
 } else {
     console.log(yellow(`Test input already exists for day ${day}`));

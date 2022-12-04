@@ -1,7 +1,7 @@
 # Ewan's Advent of Code 2022
 
 Project with utils to get the next day's challenge setup and ready as quickly as possible.<br />
-Includes a program to automatically fetch the a day's input, test input, and question page screenshot
+Includes a program to automatically fetch a day's input, test input, and question page screenshot
 
 ## Setup
 install deno

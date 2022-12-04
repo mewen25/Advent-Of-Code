@@ -6,7 +6,7 @@ Includes a program to automatically fetch a day's input, test input, and questio
 ## Setup
 install deno
 ### To start fresh
-- `rm -rf days/* && rm -rf input/*` (Remove existing data)<br />
+- `rm -rf days && rm -rf input` (Remove existing data)<br />
 - `deno run -A setup.ts` (Recreate folder structure)
 ### Cookie
 `Add unique session cookie from logging into adventofcode.com to secrets.ts`

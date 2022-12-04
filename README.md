@@ -1,19 +1,19 @@
-# Ewan's Advent of Code 2022
+# Advent of Code 2022
 
-Project with utils to get the next day's challenge setup and ready as quickly as possible.<br />
+Advent of code Project built in Deno with utils to get the next day's challenge setup and ready as quickly as possible.<br />
 Includes a program to automatically fetch a day's input, test input, and question page screenshot
 
 ## Setup
 install deno
-### Start fresh
-`rm -rf days/* && rm -rf input/* && deno run -A setup.ts`<br />
-
-### Secrets.ts
-Add your unique session cookie
+### To start fresh
+- `rm -rf days/* && rm -rf input/*` (Remove existing data)<br />
+- `deno run -A setup.ts` (Recreate folder structure)
+### Cookie
+`Add unique session cookie from logging into adventofcode.com to secrets.ts`
 
 ## Usage
 Run the setup.ts file with the day number as an argument<br />
-It will then attempt to fetch all the day information and place things into input/day and days/day
+It will then attempt to fetch all the day information and place info into input/dayNumber and days/dayNumber
 
 #### Example
 `deno run -A setup.ts 1`

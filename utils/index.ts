@@ -1,7 +1,12 @@
-import puppeteer from "https://deno.land/x/puppeteer@16.2.0/mod.ts";
+import puppeteer from "puppeteer";
 import { SESSION_COOKIE } from "../secrets.ts";
 
-const __dirname = new URL('../', import.meta.url).pathname.slice(1);
+let __dirname = new URL('../', import.meta.url).pathname;
+if(Deno.build.os === 'windows') __dirname = __dirname.slice(1);
+
+export const getDirName = () => {
+    return __dirname;
+}
 
 export function existsSync(filePath: string | URL): boolean {
     try {
@@ -15,7 +20,7 @@ export function existsSync(filePath: string | URL): boolean {
 export const padNumber = (num: number) => {
     return num.toString().padStart(2, '0');
 }
-export const dayInputString = (day: string, testData = false) => Deno.readTextFileSync(`../input/${ day }/${ testData ? 'test' : 'input' }.txt`);
+export const dayInputString = (day: string, testData = false) => Deno.readTextFileSync(`${__dirname}input/${ day }/${ testData ? 'test' : 'input' }.txt`);
 
 export const getQuestionPage = async (day: number) => {
     const response = await fetch(`https://adventofcode.com/2022/day/${ day }`);

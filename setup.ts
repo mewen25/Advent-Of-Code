@@ -1,5 +1,5 @@
 import { green, red, yellow } from "https://deno.land/std@0.123.0/fmt/colors.ts"
-import { fetchDayInput, padNumber, fetchTestInput, fetchDayScreenshot, validFile } from './utils/index.ts';
+import { fetchDayInput, padNumber, fetchTestInput, fetchDayScreenshot, validFile, getDirName } from './utils/index.ts';
 
 function createFoldersAndFiles() {
     const part1Str = 'export default function part1(data: string) {\n  return 0;\n}\n';
@@ -79,3 +79,5 @@ if(!validFile(`input/${padNumber(day)}/test.txt`, true)) {
 
 
 console.log(green(`Setup complete`));
+
+console.log(getDirName())

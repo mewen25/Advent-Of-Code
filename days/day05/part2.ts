@@ -5,11 +5,10 @@ export default function part2(data: string) {
   crates = crates.replaceAll(/[\[\]]/g, '').replaceAll(/\s{4}/g, '-').replaceAll(/\s/g, '')
   const letters = crates.slice(0, -9)
 
-  let groups = Array.from({ length: 9 }, () => [])
-  groups = [...Array(letters.length)].reduce((acc, cur, i) => {
+  const groups = [...Array(letters.length)].reduce((acc, _, i) => {
     if(letters[i]!=='-') acc[i%9].push(letters[i])
     return acc;
-  }, groups);
+  }, Array.from({ length: 9 }, () => []));
 
   instructions.split('\n').forEach(i => {
     const [amount, from, to] = [...i.matchAll(/\d+/g)].map(Number);

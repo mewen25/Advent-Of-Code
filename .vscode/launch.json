@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Deno",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${fileDirname}",
+            "runtimeExecutable": "deno",
+            "runtimeArgs": ["run", "-A", "--inspect-brk"],
+            "program": "${file}",
+            "outputCapture": "std",
+            "attachSimplePort": 9229
+        }
+    ]
+}

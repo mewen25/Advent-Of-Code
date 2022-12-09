@@ -1,4 +1,4 @@
-export const solution = 1566;
+export const solution = 1566; // part1Solution
 
 export default function part1(data: string) {
   let result;

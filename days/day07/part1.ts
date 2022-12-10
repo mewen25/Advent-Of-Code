@@ -88,154 +88,34 @@ export default function part1(data: string) {
     return sum;
   }
 
-  // for(let dir in structure) {
-  //   // if(dir !== "-/") break; 
-  //   // console.log(structure[dir])
-  //   const sum = getDirTotal(dir);
-  //   console.log('sum', dir, structure[dir]);
-  //   if(sum == 100000) {
-  //     console.log('exact', sum, dir)
-  //   }
-  //   if(sum <= 100000) total += sum;
-  // }
-
   let total = 0;
   let challengeTotal = 0;
 
-  let cacheValues = {
-
-  }
+  let cacheValues = {}
 
   const searchDir = dir => {
     let sum = 0;
-    console.log("Searching", dir)
     for(let [key, value] of structure[dir]) {
-      // console.log('> ', key, value, dir);
-      if(key.startsWith('_')) sum += value;
-      else {
-        if(cacheValues[dir+'-'+key]) {
-          // console.log('cached', dir+'-'+key, cacheValues[dir+'-'+key]);
-          sum += cacheValues[dir+'-'+key];
-          if(sum <= 100000) {
-            challengeTotal += cacheValues[dir+'-'+key];
-          }
-          continue;
-        }
-        const subSum = searchDir(dir+'-'+key);
-        console.log('subsum', subSum, dir);
-        cacheValues[dir+'-'+key] = subSum;
-        if(sum > 100000) {
-          // console.log("too much", sum, dir);
-        }
-        else challengeTotal += subSum;
-        sum += subSum;
+
+      if(key.startsWith('_')) {
+        sum += value;
+        continue;
       }
+
+      const newSum = cacheValues[dir+'-'+key] ?? searchDir(dir+'-'+key);
+      if(newSum <= 100000) {
+        challengeTotal += newSum;
+        console.log("valid sum", dir, key, newSum, challengeTotal);
+      }
+      sum += newSum;
     }
     console.log("total", dir, sum);
     return sum;
   }
 
-
-  // const rootFolders = Object.keys(structure).filter(k => k.split('-').length == 3);
-  // searchDir(rootFolders[0])
-  // rootFolders.forEach(r => {
-    const sum = searchDir("-/");
-    console.log('full total', sum, challengeTotal);
-    console.log(structure);
-  // })
+  const sum = searchDir("-/");
+  console.log('full total', sum, challengeTotal);
 
   console.log(total);
   return total;
-
-
-
-  // console.log(lines);
-
-  // const findDir = (startIndex, end=false) => {
-    
-
-  // }
-
-  
-
-  // for(let i=0; i< lines.length; i++) {
-  //   const line = lines[i];
-  //   if(!line || !line[0]) {
-  //     console.log("empty line");
-  //     break;
-  //   }
-  //   console.log('>', line, i);
-
-  //   const isLocation = line.startsWith('cd');
-  //   if(isLocation && lines[i+1] === 'ls') {
-  //     console.log("a location", line)
-  //     const dirName = line.split(' ')[1];
-  //     // if(!structure.get(dirName)) structure.set(dirName, []);
-  //     if(!structure[dirName]) structure[dirName] = new Map();
-  //     i+=2;
-  //     do {
-  //       const below = lines[i];
-  //       if(!below) break;
-  //       if(below.startsWith("cd")) {
-  //         i--;
-  //         break;
-  //       }
-  //       if(below.startsWith('dir')) structure[dirName].set(below.split(' ')[1], 0);
-  //       else if(isNumber(below[0])) {
-  //         console.log("file found", below);
-  //         const [value, key] = below.split(' ');
-  //         // characters until a dot
-  //         const fileKey = '_'+key.split('.')[0];
-  //         structure[dirName].set(fileKey, Number(value));
-  //       }
-  //       i++;
-  //     } while(true);
-  //     console.log(i, structure[dirName].size);
-  //     // console.log('found dir', dirName, structure[dirName], i);
-  //   }
-  //   else {
-  //     // console.log('not a file', line)
-  //   }
-  // }
-
-  // let cacheValues = {};
-
-  // const getSumOfFolder = (dir, its=0) => {
-  //   // if(!structure[dir]) return 0;
-  //   let contents = Array.from(structure[dir].keys());
-  //   // contents = removeDuplicates(contents);
-  //   // console.log("checking folder", dir, cacheValues[dir], its);
-  //   // if(its > 100) {
-  //   //   console.log('broke', dir, its, structure[dir], contents)
-  //   //   // return null;
-  //   // }
-  //   const sum = cacheValues[dir] ?? contents.reduce((acc, cur) => {
-  //     if(cur[0] !== '_') return acc + getSumOfFolder(cur, its++);
-  //     const value = structure[dir].get(cur);
-  //     console.log('value', value, cur, acc);
-  //     return acc + value;
-  //   }, 0);
-  //   if(!cacheValues[dir]) cacheValues[dir] = sum;
-  //   console.log('dir', dir, sum, contents)
-  //   return sum;
-  // }
-
-  // let it = 0;
-  // for(let dir in structure) {
-  //   if(it > 20) break;
-  //   console.log("check", dir, structure[dir])
-  //   let sum = 0;
-  //   if(dir[0] === '_') sum = structure[dir]; 
-  //   const sum = getSumOfFolder(dir);
-  //   if(sum === null) {
-  //     console.log("break", dir)
-  //     break;
-  //   }
-  //   if(sum < 100000) valids.push(sum);
-  //   it++;
-  // }
-
-  // // console.log(structure, valids, valids.reduce((acc, cur) => acc + cur), 0);
-
-
 }

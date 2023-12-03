@@ -1,4 +1,4 @@
-# Advent of Code 2022
+# Advent of Code 2023
 
 Advent of code Project built in Deno with utils to get the next day's challenge setup and ready as quickly as possible.<br />
 Includes a program to automatically fetch a day's input, test input, and question page screenshot

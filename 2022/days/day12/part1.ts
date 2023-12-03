@@ -1,3 +1,3 @@
 export default function part1(data: string) {
-  return 0;
+  return 0; // TODO
 }

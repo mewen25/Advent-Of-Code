@@ -24,4 +24,4 @@ It will then attempt to fetch all the day information and place info into input/
 
 This will log the return from both functions - part1.ts and part2.ts<br />
 
-You can choose to run the test data instead by changing: `days/day01/index.ts > utils.dayInputString('01')` to `utils.dayInputString('01', true)`
+You can choose to run against the test data instead by changing: `days/day01/index.ts > utils.dayInputString('01')` to `utils.dayInputString('01', true)`

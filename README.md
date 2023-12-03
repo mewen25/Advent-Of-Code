@@ -8,8 +8,9 @@ install deno
 ### To start fresh
 - `rm -rf days && rm -rf input` (Remove existing data)<br />
 - `deno run -A setup.ts` (Recreate folder structure)
+  - `deno run -A setup.ts 1` (Or run each day individually)
 ### Cookie
-`Add unique session cookie from logging into adventofcode.com to secrets.ts`
+`Add unique session cookie from logging into adventofcode.com to .env, -- see .env.example`
 
 ## Usage
 Run the setup.ts file with the day number as an argument<br />

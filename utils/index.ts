@@ -1,5 +1,9 @@
 import puppeteer from "puppeteer";
-import { SESSION_COOKIE } from "../secrets.ts";
+import { load } from "https://deno.land/std@0.208.0/dotenv/mod.ts";
+await load({ export: true });
+const SESSION_COOKIE = Deno.env.get('SESSION_COOKIE');
+
+console.log("COOKIE", SESSION_COOKIE)
 
 let __dirname = new URL('../', import.meta.url).pathname;
 if (Deno.build.os === 'windows') __dirname = __dirname.slice(1);

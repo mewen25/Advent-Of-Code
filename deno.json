@@ -1,10 +1,12 @@
 {
-    "importMap": "import_map.json",
-    "compilerOptions": {
-        "strict": false,
-        "noImplicitAny": false
-    },
-    "tasks": {
-
-    }
+  "importMap": "import_map.json",
+  "compilerOptions": {
+    "strict": false,
+    "noImplicitAny": false,
+    "lib": [
+      "ES2021",
+      "deno.window"
+    ]
+  },
+  "tasks": {}
 }

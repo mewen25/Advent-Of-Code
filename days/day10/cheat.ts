@@ -411,5 +411,5 @@ function part2(input: string): number {
 
 const input = await Deno.readTextFile("./input/10/input.txt")
 
-console.log('part 1:', part1(input))
-// console.log('part 2:', part2(input))
+// console.log('part 1:', part1(input))
+console.log('part 2:', part2(input))

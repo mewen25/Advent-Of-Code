@@ -1,7 +1,7 @@
 import part1 from "./part1.ts";
 import part2 from "./part2.ts";
 import * as utils from "../../utils/index.ts";
-const data = utils.dayInputString("12", true);
+const data = utils.dayInputString("18", true);
 const temp = window.console.log;
 if (false) window.console.log = () => {};
 

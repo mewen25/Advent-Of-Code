@@ -1,7 +1,7 @@
 import part1 from "./part1.ts";
 import part2 from "./part2.ts";
 import * as utils from "../../utils/index.ts";
-const data = utils.dayInputString("02", false);
+const data = utils.dayInputString('04', true);
 
 const p1 = part1(data);
 const p2 = part2(data);
